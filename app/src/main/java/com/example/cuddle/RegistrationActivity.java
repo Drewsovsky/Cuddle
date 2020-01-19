@@ -20,6 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     private Button mRegister;
@@ -78,11 +81,16 @@ public class RegistrationActivity extends AppCompatActivity {
                             Toast.makeText(RegistrationActivity.this, "Sign up error", Toast.LENGTH_LONG).show();
                         } else {
                             String userId = mAuth.getCurrentUser().getUid();
+
                             DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference("Users")
                                     .child(radioButton.getText().toString())
-                                    .child(userId)
-                                    .child("Name");
-                            currentUserDb.setValue(name);
+                                    .child(userId);
+
+                            Map userInfo = new HashMap<>();
+                            userInfo.put("Name", name);
+                            userInfo.put("ProfileImageUrl", "default");
+
+                            currentUserDb.updateChildren(userInfo);
 
                             Toast.makeText(RegistrationActivity.this, "UserCreated", Toast.LENGTH_LONG).show();
                         }

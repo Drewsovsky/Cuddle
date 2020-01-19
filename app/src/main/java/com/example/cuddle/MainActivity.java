@@ -20,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
                         .child("Yes")
                         .child(currentUid).setValue(true);
 
+                isConnectionMach(userId);
+
                 Toast.makeText(MainActivity.this, "Right!", Toast.LENGTH_SHORT).show();
             }
 
@@ -114,6 +117,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void isConnectionMach(String userId) {
+        DatabaseReference currentUserConnectionsDb = usersDb.child(userSex)
+                .child(currentUid)
+                .child("Connections")
+                .child("Yes")
+                .child(userId);
+        currentUserConnectionsDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Toast.makeText(MainActivity.this, "New Connection", Toast.LENGTH_LONG).show();
+                    usersDb.child(oppositeUserSex)
+                            .child(dataSnapshot.getKey())
+                            .child("Connections")
+                            .child("Matches")
+                            .child(currentUid).setValue(true);
+                    usersDb.child(userSex)
+                            .child(currentUid)
+                            .child("Connections")
+                            .child("Matches")
+                            .child(dataSnapshot.getKey()).setValue(true);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private String userSex;
@@ -194,8 +228,11 @@ public class MainActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()
                         && !dataSnapshot.child("Connections").child("Nope").hasChild(currentUid)
                         && !dataSnapshot.child("Connections").child("Yes").hasChild(currentUid)) {
-
-                    Card item = new Card(dataSnapshot.getKey(), dataSnapshot.child("Name").getValue().toString());
+                    String profileImageUrl = "default";
+                    if (!dataSnapshot.child("ProfileImageUrl").getValue().equals("default")) {
+                        profileImageUrl = dataSnapshot.child("ProfileImageUrl").getValue().toString();
+                    }
+                    Card item = new Card(dataSnapshot.getKey(), dataSnapshot.child("Name").getValue().toString(), profileImageUrl);
                     rowItems.add(item);
 
                     mArrayAdapter.notifyDataSetChanged();
@@ -228,4 +265,10 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
+    public void goToSettings(View view) {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        intent.putExtra("userSex", userSex);
+        startActivity(intent);
+        return;
+    }
 }
