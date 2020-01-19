@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "635908299730",
+    "firebase_url": "https://cuddle-dada9.firebaseio.com",
+    "project_id": "cuddle-dada9",
+    "storage_bucket": "cuddle-dada9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635908299730:android:0cbcb5b584dde0f023c60b",
+        "android_client_info": {
+          "package_name": "com.example.cuddle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635908299730-aekjprc6p403u6jcurpk2g2pqms5sv0t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cuddle",
+            "certificate_hash": "4845d478d8d8bc9984fcd1419e4032a349849fe7"
+          }
+        },
+        {
+          "client_id": "635908299730-vaa7qa27fb889pfvqjli2m6n6uriasnu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_6nA-wgHtAx05gC1KZaf8sRCYfTSnkwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635908299730-vaa7qa27fb889pfvqjli2m6n6uriasnu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
