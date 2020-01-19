@@ -228,8 +228,11 @@ public class MainActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()
                         && !dataSnapshot.child("Connections").child("Nope").hasChild(currentUid)
                         && !dataSnapshot.child("Connections").child("Yes").hasChild(currentUid)) {
-
-                    Card item = new Card(dataSnapshot.getKey(), dataSnapshot.child("Name").getValue().toString());
+                    String profileImageUrl = "default";
+                    if (!dataSnapshot.child("ProfileImageUrl").getValue().equals("default")) {
+                        profileImageUrl = dataSnapshot.child("ProfileImageUrl").getValue().toString();
+                    }
+                    Card item = new Card(dataSnapshot.getKey(), dataSnapshot.child("Name").getValue().toString(), profileImageUrl);
                     rowItems.add(item);
 
                     mArrayAdapter.notifyDataSetChanged();
@@ -262,4 +265,10 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
+    public void goToSettings(View view) {
+        Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        intent.putExtra("userSex", userSex);
+        startActivity(intent);
+        return;
+    }
 }
