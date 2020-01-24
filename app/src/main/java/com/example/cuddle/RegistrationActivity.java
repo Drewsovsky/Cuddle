@@ -82,12 +82,11 @@ public class RegistrationActivity extends AppCompatActivity {
                         } else {
                             String userId = mAuth.getCurrentUser().getUid();
 
-                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(radioButton.getText().toString())
-                                    .child(userId);
+                            DatabaseReference currentUserDb = FirebaseDatabase.getInstance().getReference("Users").child(userId);
 
                             Map userInfo = new HashMap<>();
                             userInfo.put("Name", name);
+                            userInfo.put("Sex", radioButton.getText().toString());
                             userInfo.put("ProfileImageUrl", "default");
 
                             currentUserDb.updateChildren(userInfo);
