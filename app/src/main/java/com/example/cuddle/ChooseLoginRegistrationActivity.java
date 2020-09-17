@@ -19,6 +19,8 @@ public class ChooseLoginRegistrationActivity extends AppCompatActivity {
         mLogin = (Button) findViewById(R.id.loginButton);
         mRegister = (Button) findViewById(R.id.registerButton);
 
+        //TODO: if user is logged in, start MainActivity
+
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

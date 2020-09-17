@@ -8,11 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.cuddle.Cards.Card;
+import com.example.cuddle.Cards.arrayAdapter;
+import com.example.cuddle.Matches.MatchesActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -53,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         currentUid = mAuth.getCurrentUser().getUid();
 
         checkUserSex();
-
         rowItems = new ArrayList<Card>();
         mArrayAdapter = new arrayAdapter(this, R.layout.item, rowItems);
 
@@ -225,6 +225,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToSettings(View view) {
         Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        startActivity(intent);
+        return;
+    }
+
+    public void goToMatches(View view) {
+        Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
         startActivity(intent);
         return;
     }
