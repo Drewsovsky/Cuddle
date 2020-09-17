@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity"
-    android:orientation="vertical">
+    android:background="@drawable/gradient_bg"
+    android:orientation="vertical"
+    android:padding="25sp"
+    tools:context=".RegistrationActivity">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="email"
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailEditText"
-        />
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="password"
-        android:id="@+id/passwordEditText"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/loginButton"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Введите свой email"
+        android:textColor="@color/colorSurface"
+        android:textColorHint="@color/colorSurface" />
 
-</LinearLayout>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailEditText"
+        android:hint="password"
+        android:textColor="@color/colorSurface"
+        android:textColorHint="@color/colorSurface" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Login" />
+
+</RelativeLayout>

@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <!--<color name="colorPrimary">#6200EE</color>-->
+    <color name="colorPrimary">#FF5F6D</color>
+    <color name="colorSecondary">#000000</color>
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorError">#B00020</color>
+
+    <!-- New MaterialComponents attributes. -->
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorSecondaryVariant">#018786</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnSecondary">#03DAC6</color>
+    <color name="colorOnBackground">#000000</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorOnSurface">#000000</color>
+
+    <color name="colorGradient1_1">#FFC371</color>
+    <color name="colorGradient1_2">#FF5F6D</color>
+    <color name="colorGradient2_1">#A1FFCE</color>
+    <color name="colorGradient2_2">#FAFFD1</color>
+
 </resources>
