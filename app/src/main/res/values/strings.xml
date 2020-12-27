@@ -4,4 +4,25 @@
     <string name="chooseLogReg_communicate">ОБЩАЙСЯ</string>
     <string name="chooseLogReg_meet2">ВСТРЕЧАЙСЯ</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottomNavProfile">Профиль</string>
+    <string name="bottomNavSearch">Поиск</string>
+    <string name="bottomNavChat">Чаты</string>
+    <string name="fragmentProfileLogOutButton">Выйти с аккаунта</string>
+    <string name="fragmentProfileAcceptChangingButton">Принять изменения данных</string>
+    <string name="reg_AlreadyRegistered">Уже зарегистрированы?</string>
+    <string name="log_CreateAccount">Создать аккаунт</string>
+    <string name="reg_CreateAccount_Button">Создать аккаунт</string>
+    <string name="log_Login_Button">Войти</string>
+    <string name="log_EnterEmail_Hint">Введите свой email</string>
+    <string name="log_EnterPassword_Hint">Введите свой пароль</string>
+    <string name="reg_EnterName_Hint">Введите своё имя</string>
+    <string name="reg_EnterGender_TextView">Укажите свой пол:</string>
+    <string name="reg_Female_RadioButton">Женщина</string>
+    <string name="reg_Male_RadioButton">Мужчина</string>
+    <string name="reg_Email_Hint">Введите свой email</string>
+    <string name="reg_Password_Hint">Введите желаемый пароль</string>
+    <string name="reg_RepPassword_Hint">Повторите введённый пароль</string>
+
 </resources>

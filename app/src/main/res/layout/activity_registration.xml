@@ -7,55 +7,146 @@
     tools:context=".RegistrationActivity"
     android:orientation="vertical"
     android:background="@drawable/gradient_bg"
-    android:padding="20dp">
+    android:padding="25dp">
 
-
-    <com.google.android.material.textfield.TextInputEditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="name"
-        android:id="@+id/nameEditText"
+        android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="10dp"
-        />
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/radioGroup"
-        android:layout_below="@+id/nameEditText"
-        android:layout_marginBottom="10dp">
-        <com.google.android.material.radiobutton.MaterialRadioButton
+        android:paddingTop="40dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Male"
-            />
-        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:gravity="center"
+            android:layout_marginBottom="20sp">
+            <ImageView
+                android:id="@+id/reg_ProfileImg_ImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_profile_image_round" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Female"
-            />
-    </RadioGroup>
-    <com.google.android.material.textfield.TextInputEditText
+            android:hint="@string/reg_EnterName_Hint"
+            android:textColorHint="@color/colorSurface"
+            app:hintTextColor="@color/colorSurface"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorSurface"
+                android:id="@+id/nameEditText"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reg_EnterGender_TextView"
+            android:textColor="@color/colorSurface"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup"
+            android:orientation="horizontal">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reg_Male_RadioButton"
+                android:textColor="@color/colorSurface"
+                android:layout_marginRight="15dp"
+                android:tag="Male"/>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reg_Female_RadioButton"
+                android:textColor="@color/colorSurface"
+                android:tag="Female"/>
+
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reg_Email_Hint"
+            android:textColorHint="@color/colorSurface"
+            app:hintTextColor="@color/colorSurface"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorSurface"
+                android:id="@+id/emailEditText"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reg_Password_Hint"
+            android:textColorHint="@color/colorSurface"
+            app:hintTextColor="@color/colorSurface"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorSurface"
+                android:id="@+id/passwordEditText"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextField_repPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/reg_RepPassword_Hint"
+            android:textColorHint="@color/colorSurface"
+            app:hintTextColor="@color/colorSurface"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorSurface"
+                android:id="@+id/repPasswordEditText"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="email"
-        android:id="@+id/emailEditText"
-        android:layout_below="@+id/radioGroup"
-        android:layout_marginBottom="10dp"
-        />
-    <com.google.android.material.textfield.TextInputEditText
+        android:text="@string/reg_AlreadyRegistered"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:onClick="goToLogin"
+        android:layout_above="@id/registerButton"
+        android:layout_marginBottom="10dp"/>
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="password"
-        android:id="@+id/passwordEditText"
-        android:layout_below="@+id/emailEditText"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/reg_CreateAccount_Button"
         android:id="@+id/registerButton"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

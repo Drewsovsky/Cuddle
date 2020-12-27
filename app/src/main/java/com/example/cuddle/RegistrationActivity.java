@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button mRegister;
     private EditText mEmail, mPassword, mName;
     private RadioGroup mRadioGroup;
+    private ImageView mImage;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
@@ -56,6 +58,7 @@ public class RegistrationActivity extends AppCompatActivity {
         mEmail = (EditText) findViewById(R.id.emailEditText);
         mPassword = (EditText) findViewById(R.id.passwordEditText);
         mName = (EditText) findViewById(R.id.nameEditText);
+        mImage = (ImageView) findViewById(R.id.profileImageView_Settings);
 
         mRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
@@ -74,6 +77,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 final String password = mPassword.getText().toString();
                 final String name = mName.getText().toString();
 
+
+
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -87,7 +92,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             Map userInfo = new HashMap<>();
                             userInfo.put("Name", name);
-                            userInfo.put("Sex", radioButton.getText().toString());
+                            userInfo.put("Sex", radioButton.getTag().toString());
                             userInfo.put("ProfileImageUrl", "default");
 
                             currentUserDb.updateChildren(userInfo);
@@ -96,6 +101,15 @@ public class RegistrationActivity extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+
+        mImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, 1);
             }
         });
     }
@@ -111,4 +125,12 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onStop();
         mAuth.removeAuthStateListener(firebaseAuthStateListener);
     }
+
+    public void goToLogin(View view) {
+        Intent intent = new Intent (RegistrationActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
 }
